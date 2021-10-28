@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Satisfaction Survey Q4{% endblock %}
+
+{% block content %}
+<h1>{{question}}</h1>
+
+
+{% for msg in get_flashed_messages() %}
+<h4>{{msg}}</h4>
+{% endfor %}
+<form action="/next_page" method="POST">
+    <input type="radio" id="choice_3_0" name="choice_3_0" value={{answer[0]}}>
+    <label for="choice_3_0">{{answer[0]}}</label>
+    <input type="radio" id="choice_3_1" name="choice_3_1" value={{answer[1]}}>
+    <label for="choice_3_1" name="choice_3_1">{{answer[1]}}</label>
+    
+    <button name="submit_button">Next Question</button>
+</form>
+{% endblock %}
